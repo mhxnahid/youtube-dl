@@ -538,6 +538,7 @@ from .karaoketv import KaraoketvIE
 from .karrierevideos import KarriereVideosIE
 from .keezmovies import KeezMoviesIE
 from .ketnet import KetnetIE
+from .kamababa import (Kamababa2IE)
 from .khanacademy import (
     KhanAcademyIE,
     KhanAcademyUnitIE,
