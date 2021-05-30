@@ -2,9 +2,8 @@ import re
 
 from .common import InfoExtractor
 
-
 class Kamababa2IE(InfoExtractor):
-    _VALID_URL = r'(?:https?://)?(?:www\.)?kamababa2\.com/(?P<id>.*)' # match any
+    _VALID_URL = r'(?:https?://)?(?:www\.)?kamababa2\.com/(?P<id>[a-zA-Z0-9-]+)' # match a-z 0-9 and dash
 
     def _real_extract(self, url):
         mobj = re.match(self._VALID_URL, url)
