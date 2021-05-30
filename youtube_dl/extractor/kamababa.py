@@ -4,7 +4,7 @@ from .common import InfoExtractor
 
 
 class Kamababa2IE(InfoExtractor):
-    _VALID_URL = r'(?:https?://)?(?:www\.)?kamababa2\.com/(?P<id>\w+)'
+    _VALID_URL = r'(?:https?://)?(?:www\.)?kamababa2\.com/(?P<id>.*)' # match any
 
     def _real_extract(self, url):
         mobj = re.match(self._VALID_URL, url)
@@ -16,7 +16,7 @@ class Kamababa2IE(InfoExtractor):
         # Log that we are starting to parse the page
         self.report_extraction(video_id)
 
-        iframe_url = self._html_search_regex(r'<iframe src="(.+?)" frameborder="0" scrolling="no" allowfullscreen></iframe>', webpage, u'video URL')
+        iframe_url = self._html_search_regex(r'<iframe src="(.+?)" frameborder="0" scrolling="no" allowfullscreen></iframe>', webpage, u'iframe URL')
         iframe_webpage = self._download_webpage(iframe_url, '')
 
         video_url = self._html_search_regex(r'<source src="(.+?)" type="video/mp4"></source>', iframe_webpage, u'video URL')
